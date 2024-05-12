@@ -1,8 +1,17 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:pokedex/app/presentation/pages/home/home_page.dart';
+import 'package:pokedex/observers.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(
+    ProviderScope(
+      observers: [
+        Observers(),
+      ],
+      child: const MyApp(),
+    ),
+  );
 }
 
 class MyApp extends StatelessWidget {
