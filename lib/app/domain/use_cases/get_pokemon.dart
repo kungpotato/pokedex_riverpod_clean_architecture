@@ -18,8 +18,8 @@ class GetPokemon
 
 class GetPokemonParams {
   GetPokemonParams({
-    required this.test,
+    required this.limit,
   });
 
-  final String test;
+  final int limit;
 }

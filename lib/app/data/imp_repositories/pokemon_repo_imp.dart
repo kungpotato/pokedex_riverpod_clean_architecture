@@ -28,6 +28,7 @@ class PokemonRepoImp extends PokemonRepository {
         final String token = await _userLocalDataSource.getToken();
         final data = await _dataSource.fetchPokemon(
           token: 'Bearer $token',
+          limit: params.limit,
         );
         return Right(data.map((e) => e.toEntity()).toList());
       } else {

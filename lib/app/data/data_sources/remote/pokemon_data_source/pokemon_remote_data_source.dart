@@ -12,5 +12,7 @@ abstract class PokemonRemoteDataSource {
   @GET(APIEnPoint.getPokemon)
   Future<List<PokemonModel>> fetchPokemon({
     @Header('Authorization') required String token,
+    @Query('limit') int? limit,
+    @Query('offset') int offset = 0,
   });
 }
