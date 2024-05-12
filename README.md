@@ -1,6 +1,6 @@
 # POKEDEX
 
-A brief description of what this project does and who it's for.
+This is a simple project for using Riverpod with clean architecture.
 
 ## Installation
 
@@ -16,7 +16,7 @@ install it from [Flutter's official site](https://docs.flutter.dev/get-started/i
 
 1. **Clone the project**
    ```bash
-   git clone https://github.com/your-username/your-project-name.git
+   git clone https://github.com/kungpotato/pokedex_riverpod_clean_architecture.git
 
 2. **Install tools**
    ```bash
