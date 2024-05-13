@@ -15,18 +15,21 @@ void main() {
   late PokemonRepository mockPokemonRepository;
   late GetPokemonParams getPokemonParams;
 
-  setUp(() {
-    mockPokemonRepository = MockPokemonRepository();
-    getPokemonParams = MockGetPokemonParams();
-    getPokemon = MockGetPokemon();
-  });
-
   const tLimit = 10;
   final tPokemonParams = GetPokemonParams(limit: tLimit);
   final tPokemonList = List<Pokemon>.generate(
     tLimit,
     (index) => Pokemon(name: 'Pokemon $index', url: 'www.google.com'),
   );
+
+  setUp(() {
+    mockPokemonRepository = MockPokemonRepository();
+    getPokemonParams = MockGetPokemonParams();
+    getPokemon = MockGetPokemon();
+
+    when(getPokemon(getPokemonParams))
+        .thenAnswer((_) async => Right(tPokemonList));
+  });
 
   test(
       'should return a list of Pokemon when the call to repository is successful',
