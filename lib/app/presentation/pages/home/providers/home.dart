@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:dartz/dartz.dart';
 import 'package:flutter/material.dart';
 import 'package:pokedex/app/data/models/pokemon/pokemon_model.dart';
@@ -13,9 +15,9 @@ part 'home.g.dart';
 @riverpod
 class Home extends _$Home {
   @override
-  HomeState build() {
+  Future<HomeState> build() async {
     // state = const AsyncValue.data([4]);
-    fetchPokemon();
+    unawaited(fetchPokemon());
     return const HomeState.initial();
   }
 
