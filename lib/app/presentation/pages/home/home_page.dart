@@ -1,26 +1,29 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:pokedex/app/presentation/pages/home/providers/home_state_provider.dart';
+import 'package:pokedex/app/presentation/pages/home/providers/home.dart';
 
 class HomePage extends ConsumerWidget {
   const HomePage({super.key});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final homeState = ref.watch(homeNotifierProvider);
-
+    final homeState = ref.watch(homeProvider);
     return Scaffold(
       appBar: AppBar(
         title: const Text('Pokémon List'),
       ),
       body: SingleChildScrollView(
-        child: Center(
-          child: Wrap(
-            children: homeState.pokemonList
-                .map((e) => _buildCardItem(name: e.name, url: e.imgUrl))
-                .toList(),
-          ),
-        ),
+        child: switch (homeState) {
+          AsyncData(:final value) => Center(
+              child: Wrap(
+                children: value.pokemonList
+                    .map((e) => _buildCardItem(name: e.name, url: e.imgUrl))
+                    .toList(),
+              ),
+            ),
+          AsyncError(:final error) => Text('error: $error'),
+          _ => const Text('loading'),
+        },
       ),
     );
   }

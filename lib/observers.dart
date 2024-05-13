@@ -18,7 +18,8 @@ class Observers extends ProviderObserver {
   }
 
   @override
-  void didDisposeProvider(ProviderBase provider, ProviderContainer container) {
+  void didDisposeProvider(
+      ProviderBase<dynamic> provider, ProviderContainer container) {
     log('''
 {
   "provider": "${provider.name ?? provider.runtimeType}",
