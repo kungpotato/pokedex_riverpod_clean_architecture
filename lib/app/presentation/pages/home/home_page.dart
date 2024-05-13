@@ -1,13 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:pokedex/app/presentation/pages/home/providers/home.dart';
+import 'package:pokedex/app/presentation/pages/home/providers/state/home_state.dart';
 
 class HomePage extends ConsumerWidget {
   const HomePage({super.key});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final homeState = ref.watch(homeProvider);
+    final AsyncValue<HomeState> homeState = ref.watch(homeProvider);
+
     return Scaffold(
       appBar: AppBar(
         title: const Text('Pokémon List'),
