@@ -24,4 +24,11 @@ class PokemonModel {
   Map<String, dynamic> toJson() => _$PokemonModelToJson(this);
 
   Pokemon toEntity() => Pokemon(name: name, url: url);
+
+  String get imgUrl {
+    final segments = url.split('/');
+    segments.removeWhere((s) => s.isEmpty);
+    final String id = segments[segments.length - 1];
+    return 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/$id.png';
+  }
 }
