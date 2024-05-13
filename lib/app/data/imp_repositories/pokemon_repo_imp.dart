@@ -1,6 +1,6 @@
 import 'package:dartz/dartz.dart';
 import 'package:pokedex/app/data/data_sources/local/user_local_data_source.dart';
-import 'package:pokedex/app/data/data_sources/remote/pokemon_data_source/pokemon_remote_data_source.dart';
+import 'package:pokedex/app/data/data_sources/remote/pokemon_remote_data_source.dart';
 import 'package:pokedex/app/domain/entities/pokemon/pokemon.dart';
 import 'package:pokedex/app/domain/repositories/pokemon_repository.dart';
 import 'package:pokedex/app/domain/use_cases/get_pokemon.dart';
@@ -9,13 +9,13 @@ import 'package:pokedex/core/network/network_info.dart';
 
 class PokemonRepoImp extends PokemonRepository {
   PokemonRepoImp({
-    required PokemonRemoteDataSource remoteDataSource,
+    required PokemonRemoteDataSourceImpl remoteDataSource,
     required NetworkInfo networkInfo,
     required UserLocalDataSource userLocalDataSource,
   })  : _dataSource = remoteDataSource,
         _networkInfo = networkInfo,
         _userLocalDataSource = userLocalDataSource;
-  final PokemonRemoteDataSource _dataSource;
+  final PokemonRemoteDataSourceImpl _dataSource;
   final UserLocalDataSource _userLocalDataSource;
   final NetworkInfo _networkInfo;
 
@@ -32,10 +32,10 @@ class PokemonRepoImp extends PokemonRepository {
         );
         return Right(data.map((e) => e.toEntity()).toList());
       } else {
-        return Left(NetworkFailure());
+        return Left(NetworkFailure(message: 'no data available'));
       }
     } else {
-      return Left(NetworkFailure());
+      return Left(NetworkFailure(message: 'no data available'));
     }
   }
 }

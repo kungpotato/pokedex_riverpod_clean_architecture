@@ -1,5 +1,3 @@
-
-
 abstract class Failure {
   Failure({this.message});
 
@@ -7,11 +5,15 @@ abstract class Failure {
 }
 
 // General failures
-class ServerFailure extends Failure {}
+class ServerFailure extends Failure {
+  ServerFailure({super.message});
+}
+
+class NetworkFailure extends Failure {
+  NetworkFailure({super.message});
+}
 
 class CacheFailure extends Failure {}
-
-class NetworkFailure extends Failure {}
 
 class ExceptionFailure extends Failure {}
 

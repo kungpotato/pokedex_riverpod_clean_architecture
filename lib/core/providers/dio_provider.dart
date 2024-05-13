@@ -2,8 +2,7 @@ import 'package:dio/dio.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 final dioProvider = Provider<Dio>((ref) {
-  final BaseOptions options =
-      BaseOptions(baseUrl: 'https://yourapi.domain.com');
+  final BaseOptions options = BaseOptions(baseUrl: 'https://pokeapi.co');
 
   final Dio dio = Dio(options);
 

@@ -1,7 +1,7 @@
 import 'package:dio/dio.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:pokedex/app/data/data_sources/local/user_local_data_source.dart';
-import 'package:pokedex/app/data/data_sources/remote/pokemon_data_source/pokemon_remote_data_source.dart';
+import 'package:pokedex/app/data/data_sources/remote/pokemon_remote_data_source.dart';
 import 'package:pokedex/app/data/imp_repositories/pokemon_repo_imp.dart';
 import 'package:pokedex/app/domain/repositories/pokemon_repository.dart';
 import 'package:pokedex/core/providers/dio_provider.dart';
@@ -15,8 +15,9 @@ final userLocalDataSourceProvider = Provider<UserLocalDataSource>((ref) {
   );
 });
 
-final pokemonDatasourceProvider = Provider.family<PokemonRemoteDataSource, Dio>(
-  (_, networkService) => PokemonRemoteDataSource(networkService),
+final pokemonDatasourceProvider =
+    Provider.family<PokemonRemoteDataSourceImpl, Dio>(
+  (_, networkService) => PokemonRemoteDataSourceImpl(networkService),
 );
 
 final Provider<PokemonRepository> pokemonRepositoryProvider =

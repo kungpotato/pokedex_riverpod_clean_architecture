@@ -31,12 +31,13 @@ class UserLocalDataSourceImpl implements UserLocalDataSource {
 
   @override
   Future<String> getToken() async {
-    final String? token = await secureStorage.read(key: cachedToken);
-    if (token != null) {
-      return Future.value(token);
-    } else {
-      throw CacheException();
-    }
+    // final String? token = await secureStorage.read(key: cachedToken);
+    // if (token != null) {
+    //   return Future.value(token);
+    // } else {
+    //   throw CacheException();
+    // }
+    return 'xxx';
   }
 
   @override
@@ -68,8 +69,9 @@ class UserLocalDataSourceImpl implements UserLocalDataSource {
 
   @override
   Future<bool> isTokenAvailable() async {
-    final String? token = await secureStorage.read(key: cachedToken);
-    return Future.value(token != null);
+    // final String? token = await secureStorage.read(key: cachedToken);
+    // return Future.value(token != null);
+    return true;
   }
 
   @override

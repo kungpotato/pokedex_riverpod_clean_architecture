@@ -1,5 +1,7 @@
 import 'package:dartz/dartz.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:pokedex/app/data/models/pokemon/pokemon_model.dart';
 import 'package:pokedex/app/domain/entities/pokemon/pokemon.dart';
 import 'package:pokedex/app/domain/repositories/pokemon_repository.dart';
 import 'package:pokedex/app/domain/use_cases/get_pokemon.dart';
@@ -39,11 +41,15 @@ class HomeNotifier extends StateNotifier<HomeState> {
         message: failure.message,
         isLoading: false,
       );
+      debugPrintStack(label: failure.message);
     }, (data) {
-      final pokemonList = [...state.pokemonList, ...data];
+      final List<PokemonModel> pokemonList = [
+        ...state.pokemonList,
+        ...data.map(PokemonModel.fromEntity),
+      ];
 
       state = state.copyWith(
-        pokemonList: [],
+        pokemonList: pokemonList,
         state: ConcreteState.loaded,
         hasData: true,
         message: pokemonList.isEmpty ? 'No data found' : '',
