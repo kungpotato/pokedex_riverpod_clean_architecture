@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:pokedex/app/presentation/pages/home/providers/home_state_provider.dart';
 import 'package:pokedex/app/presentation/pages/home/widgets/home_component_widget.dart';
 
 class HomePage extends ConsumerWidget {
@@ -8,10 +7,8 @@ class HomePage extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    return HomeComponentWidget(
-      child: Text(
-        ref.read(homeNotifierProvider),
-      ),
+    return const HomeComponentWidget(
+      child: Text('test'),
     );
   }
 }

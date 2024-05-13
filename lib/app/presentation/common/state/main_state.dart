@@ -7,10 +7,10 @@ enum ConcreteState {
   fetchedAllProducts
 }
 
-class StateProvider {
-  const StateProvider(this.hasData, this.state, this.message, this.isLoading);
+class MainState {
+  const MainState(this.hasData, this.state, this.message, this.isLoading);
 
-  const StateProvider.initial({
+  const MainState.initial({
     this.isLoading = false,
     this.hasData = false,
     this.state = ConcreteState.initial,
@@ -22,13 +22,13 @@ class StateProvider {
   final String message;
   final bool isLoading;
 
-  StateProvider copyWith({
+  MainState copyWith({
     bool? hasData,
     ConcreteState? state,
     String? message,
     bool? isLoading,
   }) {
-    return StateProvider(
+    return MainState(
       hasData ?? this.hasData,
       state ?? this.state,
       message ?? this.message,

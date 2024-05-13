@@ -9,10 +9,10 @@ import 'package:pokedex/core/network/network_info.dart';
 
 class PokemonRepoImp extends PokemonRepository {
   PokemonRepoImp({
-    required PokemonRemoteDataSource dataSource,
+    required PokemonRemoteDataSource remoteDataSource,
     required NetworkInfo networkInfo,
     required UserLocalDataSource userLocalDataSource,
-  })  : _dataSource = dataSource,
+  })  : _dataSource = remoteDataSource,
         _networkInfo = networkInfo,
         _userLocalDataSource = userLocalDataSource;
   final PokemonRemoteDataSource _dataSource;

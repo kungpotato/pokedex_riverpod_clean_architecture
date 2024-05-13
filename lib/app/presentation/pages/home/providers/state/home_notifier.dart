@@ -3,9 +3,9 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:pokedex/app/domain/entities/pokemon/pokemon.dart';
 import 'package:pokedex/app/domain/repositories/pokemon_repository.dart';
 import 'package:pokedex/app/domain/use_cases/get_pokemon.dart';
+import 'package:pokedex/app/presentation/common/state/main_state.dart';
 import 'package:pokedex/app/presentation/pages/home/providers/state/home_state.dart';
 import 'package:pokedex/core/error/failures.dart';
-import 'package:pokedex/core/providers/state_provider.dart';
 
 class HomeNotifier extends StateNotifier<HomeState> {
   HomeNotifier(

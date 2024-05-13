@@ -1,7 +1,7 @@
 import 'package:pokedex/app/data/models/pokemon/pokemon_model.dart';
-import 'package:pokedex/core/providers/state_provider.dart';
+import 'package:pokedex/app/presentation/common/state/main_state.dart';
 
-class HomeState extends StateProvider {
+class HomeState extends MainState {
   const HomeState({
     this.pokemonList = const [],
     bool hasData = false,
