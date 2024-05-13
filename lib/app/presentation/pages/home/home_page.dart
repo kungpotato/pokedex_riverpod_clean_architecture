@@ -15,17 +15,17 @@ class HomePage extends ConsumerWidget {
         title: const Text('Pokémon List'),
       ),
       body: SingleChildScrollView(
-        child: switch (homeState) {
-          AsyncData(:final value) => Center(
-              child: Wrap(
-                children: value.pokemonList
-                    .map((e) => _buildCardItem(name: e.name, url: e.imgUrl))
-                    .toList(),
-              ),
+        child: homeState.when(
+          data: (data) => Center(
+            child: Wrap(
+              children: data.pokemonList
+                  .map((e) => _buildCardItem(name: e.name, url: e.imgUrl))
+                  .toList(),
             ),
-          AsyncError(:final error) => Text('error: $error'),
-          _ => const Text('loading'),
-        },
+          ),
+          error: (error, stackTrace) => const Text('error'),
+          loading: CircularProgressIndicator.new,
+        ),
       ),
     );
   }
