@@ -22,9 +22,8 @@ class Home extends _$Home {
   }
 
   Future<void> fetchPokemon() async {
-    final repository = ref.watch(pokemonRepositoryProvider);
-    final response =
-        await repository.fetchPokemon(GetPokemonParams(limit: 100));
+    final getPokemon = GetPokemon(ref.watch(pokemonRepositoryProvider));
+    final response = await getPokemon(GetPokemonParams(limit: 100));
     updateStateFromResponse(response);
   }
 
