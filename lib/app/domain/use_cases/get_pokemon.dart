@@ -1,4 +1,5 @@
 import 'package:dartz/dartz.dart';
+import 'package:equatable/equatable.dart';
 import 'package:pokedex/app/domain/entities/pokemon/pokemon.dart';
 import 'package:pokedex/app/domain/repositories/pokemon_repository.dart';
 import 'package:pokedex/core/error/failures.dart';
@@ -16,10 +17,13 @@ class GetPokemon
   }
 }
 
-class GetPokemonParams {
-  GetPokemonParams({
+class GetPokemonParams extends Equatable {
+  const GetPokemonParams({
     required this.limit,
   });
 
   final int limit;
+
+  @override
+  List<Object?> get props => [limit];
 }

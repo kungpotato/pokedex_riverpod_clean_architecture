@@ -12,9 +12,9 @@ void main() {
 
     final notifier = container.read(homeNotifierProvider.notifier);
 
-    notifier.state = const AsyncData(HomeState.initial());
+    notifier.state = const HomeState.initial();
 
-    expect(notifier.state.value, const HomeState());
+    expect(notifier.state, const HomeState());
   });
 
   test('updatePokemonList updates the state', () {
@@ -23,19 +23,19 @@ void main() {
     );
 
     final notifier = container.read(homeNotifierProvider.notifier);
-    notifier.state = const AsyncData(HomeState.initial());
-    
+    notifier.state = const HomeState.initial();
+
     final updatedList = [
       const PokemonModel(name: 'Baseurl', url: 'www.google.com'),
     ];
 
-    final newState = notifier.state.value?.copyWith(
+    final newState = notifier.state.copyWith(
       pokemonList: updatedList,
     );
-    notifier.state = AsyncData(newState ?? const HomeState.initial());
+    notifier.state = newState;
 
     expect(
-      notifier.state.value?.pokemonList.map((e) => e.toEntity()),
+      notifier.state.pokemonList.map((e) => e.toEntity()),
       updatedList.map((e) => e.toEntity()),
     );
   });

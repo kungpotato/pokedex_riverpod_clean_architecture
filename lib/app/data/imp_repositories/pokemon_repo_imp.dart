@@ -32,10 +32,10 @@ class PokemonRepoImp extends PokemonRepository {
         );
         return Right(data.map((e) => e.toEntity()).toList());
       } else {
-        return Left(NetworkFailure(message: 'no data available'));
+        return const Left(NetworkFailure(message: 'no data available'));
       }
     } else {
-      return Left(NetworkFailure(message: 'no data available'));
+      return const Left(NetworkFailure(message: 'no data available'));
     }
   }
 }

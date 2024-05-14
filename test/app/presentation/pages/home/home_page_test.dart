@@ -5,11 +5,11 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:internet_connection_checker/internet_connection_checker.dart';
 import 'package:mockito/annotations.dart';
 import 'package:mockito/mockito.dart';
+import 'package:pokedex/app/data/providers/pokemon_repository_provider.dart';
 import 'package:pokedex/app/domain/entities/pokemon/pokemon.dart';
 import 'package:pokedex/app/domain/repositories/pokemon_repository.dart';
 import 'package:pokedex/app/domain/use_cases/get_pokemon.dart';
 import 'package:pokedex/app/presentation/pages/home/home_page.dart';
-import 'package:pokedex/app/presentation/pages/home/providers/home_notifier.dart';
 import 'package:pokedex/core/providers/network_provider.dart';
 import 'package:pokedex/core/providers/storage_provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -17,9 +17,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 import 'home_page_test.mocks.dart';
 
 @GenerateMocks([
-  GetPokemonParams,
   PokemonRepository,
-  GetPokemon,
   InternetConnectionChecker,
   SharedPreferences,
 ])
@@ -29,13 +27,15 @@ void main() {
   late SharedPreferences sharedPreferences;
 
   late PokemonRepository mockPokemonRepository;
-  late GetPokemonParams getPokemonParams;
-  late GetPokemon getPokemon;
+  const getPokemonParams = GetPokemonParams(limit: 100);
 
-  const tLimit = 10;
+  const tLimit = 2;
   final tPokemonList = List<Pokemon>.generate(
     tLimit,
-    (index) => Pokemon(name: 'Pokemon $index', url: 'www.google.com'),
+    (index) => Pokemon(
+      name: 'Pokemon $index',
+      url: 'https://pokeapi.co/api/v2/ability/7/',
+    ),
   );
 
   setUp(() {
@@ -43,14 +43,12 @@ void main() {
     sharedPreferences = MockSharedPreferences();
 
     mockPokemonRepository = MockPokemonRepository();
-    getPokemonParams = MockGetPokemonParams();
-    getPokemon = GetPokemon(mockPokemonRepository);
   });
 
   testWidgets('Show pokemon list', (tester) async {
     when(internetConnectionChecker.hasConnection).thenAnswer((_) async => true);
 
-    when(getPokemon(getPokemonParams)).thenAnswer(
+    when(mockPokemonRepository.fetchPokemon(getPokemonParams)).thenAnswer(
       (_) async => Right(tPokemonList),
     );
 
@@ -60,7 +58,7 @@ void main() {
           internetConnectionCheckerProvider
               .overrideWithValue(internetConnectionChecker),
           sharedPreferencesProvider.overrideWithValue(sharedPreferences),
-          homeNotifierProvider.overrideWith(MockHomeNotifier.new),
+          pokemonRepositoryProvider.overrideWithValue(mockPokemonRepository),
         ],
         child: const MaterialApp(
           home: HomePage(),

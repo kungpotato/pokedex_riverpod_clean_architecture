@@ -16,7 +16,7 @@ part 'home_notifier.g.dart';
 @riverpod
 class HomeNotifier extends _$HomeNotifier {
   @override
-  Future<HomeState> build() async {
+  HomeState build() {
     // state = const AsyncValue.data([4]);
     unawaited(fetchPokemon());
     return const HomeState.initial();
@@ -32,10 +32,10 @@ class HomeNotifier extends _$HomeNotifier {
     response.fold((failure) {
       debugPrintStack(label: failure.message);
     }, (data) {
-      final newState = state.value?.copyWith(
+      final newState = state.copyWith(
         pokemonList: data.map(PokemonModel.fromEntity).toList(),
       );
-      state = AsyncData(newState ?? const HomeState.initial());
+      state = newState;
     });
   }
 }
