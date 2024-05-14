@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:pokedex/app/presentation/pages/home/providers/home.dart';
+import 'package:pokedex/app/presentation/pages/home/providers/home_notifier.dart';
 import 'package:pokedex/app/presentation/pages/home/providers/state/home_state.dart';
 
 class HomePage extends ConsumerWidget {
@@ -8,7 +8,7 @@ class HomePage extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final AsyncValue<HomeState> homeState = ref.watch(homeProvider);
+    final AsyncValue<HomeState> homeState = ref.watch(homeNotifierProvider);
 
     return Scaffold(
       appBar: AppBar(

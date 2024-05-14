@@ -913,10 +913,18 @@ packages:
     dependency: transitive
     description:
       name: state_notifier
-      sha256: b8677376aa54f2d7c58280d5a007f9e8774f1968d1fb1c096adcb4792fba29bb
+      sha256: "8fe42610f179b843b12371e40db58c9444f8757f8b69d181c97e50787caed289"
       url: "https://pub.dev"
     source: hosted
-    version: "1.0.0"
+    version: "0.7.2+1"
+  state_notifier_test:
+    dependency: "direct main"
+    description:
+      name: state_notifier_test
+      sha256: "843c451952c72d3d3d10448fc371172dc1009c2a1f1f3e2328cd53f0a8c8a571"
+      url: "https://pub.dev"
+    source: hosted
+    version: "0.0.10"
   stream_channel:
     dependency: transitive
     description:

@@ -10,10 +10,10 @@ import 'package:pokedex/app/presentation/pages/home/providers/state/home_state.d
 import 'package:pokedex/core/error/failures.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
-part 'home.g.dart';
+part 'home_notifier.g.dart';
 
 @riverpod
-class Home extends _$Home {
+class HomeNotifier extends _$HomeNotifier {
   @override
   Future<HomeState> build() async {
     // state = const AsyncValue.data([4]);
