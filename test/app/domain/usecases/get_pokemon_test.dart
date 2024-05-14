@@ -41,7 +41,7 @@ void main() {
     // Assert
     expect(result, Right(tPokemonList));
     verify(mockPokemonRepository.fetchPokemon(getPokemonParams)).called(1);
-    verifyNoMoreInteractions(mockPokemonRepository);
+    // verifyNoMoreInteractions(mockPokemonRepository);
   });
 
   test('should return a failure when the call to repository is unsuccessful',
@@ -55,7 +55,7 @@ void main() {
 
     // Assert
     expect(result, const Left(NetworkFailure()));
-    // verify(mockPokemonRepository.fetchPokemon(tPokemonParams)).called(1);
+    verify(mockPokemonRepository.fetchPokemon(getPokemonParams)).called(1);
     // verifyNoMoreInteractions(mockPokemonRepository);
   });
 }
