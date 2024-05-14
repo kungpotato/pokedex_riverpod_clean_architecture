@@ -16,7 +16,6 @@ void main() {
   late GetPokemon getPokemon;
 
   const tLimit = 10;
-  final tPokemonParams = GetPokemonParams(limit: tLimit);
   final tPokemonList = List<Pokemon>.generate(
     tLimit,
     (index) => Pokemon(name: 'Pokemon $index', url: 'www.google.com'),

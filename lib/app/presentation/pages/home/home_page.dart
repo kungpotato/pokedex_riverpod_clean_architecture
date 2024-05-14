@@ -3,11 +3,24 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:pokedex/app/presentation/pages/home/providers/home_notifier.dart';
 import 'package:pokedex/app/presentation/pages/home/providers/state/home_state.dart';
 
-class HomePage extends ConsumerWidget {
+class HomePage extends ConsumerStatefulWidget {
   const HomePage({super.key});
 
   @override
-  Widget build(BuildContext context, WidgetRef ref) {
+  ConsumerState<ConsumerStatefulWidget> createState() => _HomePageState();
+}
+
+class _HomePageState extends ConsumerState<HomePage> {
+  @override
+  void initState() {
+    super.initState();
+    WidgetsBinding.instance.addPostFrameCallback((timeStamp) async {
+      //
+    });
+  }
+
+  @override
+  Widget build(BuildContext context) {
     final AsyncValue<HomeState> homeState = ref.watch(homeNotifierProvider);
 
     return Scaffold(
