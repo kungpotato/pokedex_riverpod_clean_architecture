@@ -11,17 +11,17 @@ import 'storage_provider_test.mocks.dart';
 @GenerateMocks([SharedPreferences, FlutterSecureStorage])
 void main() {
   group('SharedPreferencesProvider Tests', () {
-    late SharedPreferences mockSharedPreferences;
+    late SharedPreferences sharedPreferences;
     late ProviderContainer container;
 
     setUp(() {
-      mockSharedPreferences = MockSharedPreferences();
-      when(mockSharedPreferences.setString('test1', 'ok'))
+      sharedPreferences = MockSharedPreferences();
+      when(sharedPreferences.setString('test1', 'ok'))
           .thenAnswer((_) async => true);
-      when(mockSharedPreferences.getString('test1')).thenReturn('ok');
+      when(sharedPreferences.getString('test1')).thenReturn('ok');
       container = ProviderContainer(
         overrides: [
-          sharedPreferencesProvider.overrideWithValue(mockSharedPreferences),
+          sharedPreferencesProvider.overrideWithValue(sharedPreferences),
         ],
       );
     });
@@ -44,8 +44,8 @@ void main() {
           container.read(sharedPreferencesProvider).getString('test1');
       expect(readValue, 'ok');
 
-      verify(mockSharedPreferences.setString('test1', 'ok')).called(1);
-      verify(mockSharedPreferences.getString('test1')).called(1);
+      verify(sharedPreferences.setString('test1', 'ok')).called(1);
+      verify(sharedPreferences.getString('test1')).called(1);
     });
 
     test('should provide an instance of FlutterSecureStorage', () {
