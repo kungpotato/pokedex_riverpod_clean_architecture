@@ -1,6 +1,7 @@
+import 'package:equatable/equatable.dart';
 import 'package:pokedex/app/data/models/pokemon/pokemon_model.dart';
 
-class HomeState {
+class HomeState extends Equatable {
   const HomeState({
     this.pokemonList = const [],
   });
@@ -16,4 +17,7 @@ class HomeState {
       pokemonList: pokemonList ?? this.pokemonList,
     );
   }
+
+  @override
+  List<Object?> get props => [pokemonList];
 }
