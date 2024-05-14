@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:dartz/dartz.dart';
 import 'package:flutter/material.dart';
+import 'package:mockito/mockito.dart';
 import 'package:pokedex/app/data/models/pokemon/pokemon_model.dart';
 import 'package:pokedex/app/data/providers/pokemon_repository_provider.dart';
 import 'package:pokedex/app/domain/entities/pokemon/pokemon.dart';
@@ -38,3 +39,7 @@ class HomeNotifier extends _$HomeNotifier {
     });
   }
 }
+
+class MockHomeNotifier extends _$HomeNotifier
+    with Mock
+    implements HomeNotifier {}
