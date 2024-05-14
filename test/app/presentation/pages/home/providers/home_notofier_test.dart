@@ -14,7 +14,7 @@ void main() {
 
     notifier.state = const AsyncData(HomeState.initial());
 
-    expect(notifier.state.value, isA<HomeState>());
+    expect(notifier.state.value, const HomeState());
   });
 
   test('updatePokemonList updates the state', () {
@@ -23,7 +23,8 @@ void main() {
     );
 
     final notifier = container.read(homeNotifierProvider.notifier);
-
+    notifier.state = const AsyncData(HomeState.initial());
+    
     final updatedList = [
       const PokemonModel(name: 'Baseurl', url: 'www.google.com'),
     ];
@@ -33,6 +34,9 @@ void main() {
     );
     notifier.state = AsyncData(newState ?? const HomeState.initial());
 
-    expect(notifier.state.value?.pokemonList, updatedList);
+    expect(
+      notifier.state.value?.pokemonList.map((e) => e.toEntity()),
+      updatedList.map((e) => e.toEntity()),
+    );
   });
 }
