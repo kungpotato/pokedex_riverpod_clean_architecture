@@ -1,8 +1,8 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:pokedex/app/data/models/pokemon/pokemon_model.dart';
-import 'package:pokedex/app/presentation/pages/home/providers/home_notifier.dart';
-import 'package:pokedex/app/presentation/pages/home/providers/state/home_state.dart';
+import 'package:pokedex/app/presentation/home/providers/home_notifier.dart';
+import 'package:pokedex/app/presentation/home/providers/state/home_state.dart';
 
 void main() {
   test('initial state is correct', () {

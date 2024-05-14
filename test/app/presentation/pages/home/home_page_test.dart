@@ -9,7 +9,7 @@ import 'package:pokedex/app/data/providers/pokemon_repository_provider.dart';
 import 'package:pokedex/app/domain/entities/pokemon/pokemon.dart';
 import 'package:pokedex/app/domain/repositories/pokemon_repository.dart';
 import 'package:pokedex/app/domain/use_cases/get_pokemon.dart';
-import 'package:pokedex/app/presentation/pages/home/home_page.dart';
+import 'package:pokedex/app/presentation/home/home_page.dart';
 import 'package:pokedex/core/providers/network_provider.dart';
 import 'package:pokedex/core/providers/storage_provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';

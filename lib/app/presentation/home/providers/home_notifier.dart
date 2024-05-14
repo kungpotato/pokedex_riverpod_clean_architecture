@@ -7,7 +7,7 @@ import 'package:pokedex/app/data/models/pokemon/pokemon_model.dart';
 import 'package:pokedex/app/data/providers/pokemon_repository_provider.dart';
 import 'package:pokedex/app/domain/entities/pokemon/pokemon.dart';
 import 'package:pokedex/app/domain/use_cases/get_pokemon.dart';
-import 'package:pokedex/app/presentation/pages/home/providers/state/home_state.dart';
+import 'package:pokedex/app/presentation/home/providers/state/home_state.dart';
 import 'package:pokedex/core/error/failures.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
@@ -24,7 +24,7 @@ class HomeNotifier extends _$HomeNotifier {
 
   Future<void> fetchPokemon() async {
     final getPokemon = GetPokemon(ref.watch(pokemonRepositoryProvider));
-    final response = await getPokemon(GetPokemonParams(limit: 100));
+    final response = await getPokemon(const GetPokemonParams(limit: 100));
     updateStateFromResponse(response);
   }
 
