@@ -30,6 +30,7 @@ dependencies:
   shared_preferences: ^2.2.3
   riverpod_annotation: ^2.3.5
   mockito: ^5.4.4
+  mocktail_image_network: ^1.1.0
 
 dev_dependencies:
   flutter_test:
@@ -41,5 +42,6 @@ dev_dependencies:
   json_serializable: ^6.8.0
 
 flutter:
-  generate: true
   uses-material-design: true
+  assets:
+    - assets/pngegg.png

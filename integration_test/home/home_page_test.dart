@@ -4,6 +4,7 @@ import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:integration_test/integration_test.dart';
 import 'package:internet_connection_checker/internet_connection_checker.dart';
+import 'package:mocktail_image_network/mocktail_image_network.dart';
 import 'package:pokedex/app/presentation/home/home_page.dart';
 import 'package:pokedex/app/presentation/home/providers/home_notifier.dart';
 import 'package:pokedex/core/providers/network_provider.dart';
@@ -44,18 +45,20 @@ void main() async {
   const flutterSecureStorage = FlutterSecureStorage();
 
   testWidgets('home page end-to-end test', (tester) async {
-    await tester.pumpWidget(
-      ProviderScope(
-        observers: [
-          Observers(),
-        ],
-        overrides: [
-          sharedPreferencesProvider.overrideWithValue(sharedPreferences),
-          internetConnectionCheckerProvider
-              .overrideWithValue(internetConnectionChecker),
-          secureStorageProvider.overrideWithValue(flutterSecureStorage),
-        ],
-        child: const MyApp(),
+    await mockNetworkImages(
+      () async => tester.pumpWidget(
+        ProviderScope(
+          observers: [
+            Observers(),
+          ],
+          overrides: [
+            sharedPreferencesProvider.overrideWithValue(sharedPreferences),
+            internetConnectionCheckerProvider
+                .overrideWithValue(internetConnectionChecker),
+            secureStorageProvider.overrideWithValue(flutterSecureStorage),
+          ],
+          child: const MyApp(),
+        ),
       ),
     );
 
@@ -68,7 +71,7 @@ void main() async {
     final homeState = ref.watch(homeNotifierProvider);
 
     expect(homeState.pokemonList, isNotEmpty);
-
-    await tester.pump(const Duration(minutes: 20));
+    await tester.pump(const Duration(seconds: 1));
+    await tester.pumpAndSettle(const Duration(seconds: 5));
   });
 }

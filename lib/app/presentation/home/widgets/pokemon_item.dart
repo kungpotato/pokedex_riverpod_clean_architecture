@@ -31,8 +31,12 @@ class PokemonItem extends StatelessWidget {
                   width: double.infinity,
                   height: 150,
                   fit: BoxFit.contain,
-                  errorBuilder: (context, error, stackTrace) =>
-                      const SizedBox(),
+                  errorBuilder: (context, error, stackTrace) => Image.asset(
+                    'assets/pngegg.png',
+                    width: double.infinity,
+                    height: 150,
+                    fit: BoxFit.contain,
+                  ),
                 ),
               ),
             ),
