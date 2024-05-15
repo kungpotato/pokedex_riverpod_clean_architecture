@@ -21,7 +21,8 @@ class PokemonRemoteDataSourceImpl extends PokemonRemoteDataSource {
     required int limit,
   }) async {
     try {
-      final response = await _client.get(APIEnPoint.getPokemon);
+      final response = await _client
+          .get(APIEnPoint.getPokemon, queryParameters: {'limit': 20});
       final data = response.data['results'] as List;
 
       return data
