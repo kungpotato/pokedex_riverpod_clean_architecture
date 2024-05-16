@@ -6,7 +6,7 @@ import 'package:integration_test/integration_test.dart';
 import 'package:internet_connection_checker/internet_connection_checker.dart';
 import 'package:mocktail_image_network/mocktail_image_network.dart';
 import 'package:pokedex/app/presentation/home/home_page.dart';
-import 'package:pokedex/app/presentation/home/providers/home_notifier.dart';
+import 'package:pokedex/app/presentation/home/notifiers/home_notifier.dart';
 import 'package:pokedex/core/providers/network_provider.dart';
 import 'package:pokedex/core/providers/storage_provider.dart';
 import 'package:pokedex/main.dart';

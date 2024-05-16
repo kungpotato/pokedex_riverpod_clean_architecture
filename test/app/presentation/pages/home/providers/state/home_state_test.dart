@@ -1,6 +1,6 @@
 import 'package:flutter_test/flutter_test.dart';
 import 'package:pokedex/app/data/models/pokemon/pokemon_model.dart';
-import 'package:pokedex/app/presentation/home/providers/state/home_state.dart';
+import 'package:pokedex/app/presentation/home/notifiers/state/home_state.dart';
 
 void main() {
   group('HomeState', () {

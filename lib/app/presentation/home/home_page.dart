@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:pokedex/app/presentation/home/providers/home_notifier.dart';
+import 'package:pokedex/app/presentation/home/notifiers/home_notifier.dart';
 import 'package:pokedex/app/presentation/home/widgets/pokemon_item.dart';
 
 class HomePage extends ConsumerStatefulWidget {

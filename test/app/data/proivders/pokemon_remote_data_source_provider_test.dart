@@ -2,7 +2,7 @@ import 'package:dio/dio.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/annotations.dart';
 import 'package:pokedex/app/data/data_sources/remote/pokemon_remote_data_source.dart';
-import 'package:pokedex/app/data/providers/pokemon_remote_data_source_provider.dart';
+import 'package:pokedex/core/providers/data_source/pokemon_remote_data_source_provider.dart';
 import 'package:riverpod/riverpod.dart';
 
 import 'pokemon_remote_data_source_provider_test.mocks.dart';
