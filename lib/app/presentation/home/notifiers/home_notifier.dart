@@ -16,7 +16,7 @@ part 'home_notifier.g.dart';
 class HomeNotifier extends _$HomeNotifier {
   @override
   Future<HomeState> build() async {
-    state = const AsyncData(HomeState());
+    state = const AsyncData(HomeState.initial());
     state = const AsyncLoading<HomeState>();
     final getPokemon = GetPokemon(ref.read(pokemonRepositoryProvider));
     return fetchPokemon(getPokemon);
