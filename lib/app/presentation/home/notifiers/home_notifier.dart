@@ -17,13 +17,12 @@ class HomeNotifier extends _$HomeNotifier {
   @override
   Future<HomeState> build() async {
     state = const AsyncData(HomeState.initial());
-
-    return fetchPokemon(const GetPokemonParams(limit: 100));
+    final getPokemon = GetPokemon(ref.watch(pokemonRepositoryProvider));
+    return fetchPokemon(getPokemon);
   }
 
-  Future<HomeState> fetchPokemon(GetPokemonParams param) async {
-    final getPokemon = GetPokemon(ref.watch(pokemonRepositoryProvider));
-    final response = await getPokemon(param);
+  Future<HomeState> fetchPokemon(GetPokemon getPokemon) async {
+    final response = await getPokemon(const GetPokemonParams(limit: 100));
     return updateStateFromResponse(response);
   }
 

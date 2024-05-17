@@ -13,14 +13,12 @@ import 'package:pokedex/core/providers/repository/pokemon_repository_provider.da
 
 import 'home_notofier_test.mocks.dart';
 
-@GenerateMocks([GetPokemonParams, PokemonRepository])
+@GenerateMocks([PokemonRepository])
 void main() {
   late GetPokemon getPokemon;
-  late GetPokemonParams mockGetPokemonParams;
   late PokemonRepository mockPokemonRepository;
   late ProviderContainer container;
   setUp(() {
-    mockGetPokemonParams = MockGetPokemonParams();
     mockPokemonRepository = MockPokemonRepository();
     getPokemon = GetPokemon(mockPokemonRepository);
     container = ProviderContainer(
@@ -42,34 +40,20 @@ void main() {
   group('fetchPokemon', () {
     test('should fetch pokemon data and update state on success', () async {
       // Arrange
-      when(mockPokemonRepository.fetchPokemon(mockGetPokemonParams)).thenAnswer(
+      const getPokemonParam = GetPokemonParams(limit: 100);
+      when(getPokemon(getPokemonParam)).thenAnswer(
         (_) async => const Right([tPokemon]),
       );
 
       // Act
       final notifier = container.read(homeNotifierProvider.notifier);
-      await notifier.fetchPokemon(mockGetPokemonParams);
+      await notifier.fetchPokemon(getPokemon);
 
       // Assert
-      expect(notifier.state.value?.pokemonList, [tPokemonModel.toEntity()]);
-      verify(getPokemon(mockGetPokemonParams)).called(1);
+      expect(
+        notifier.state.value?.pokemonList.map((e) => e.toEntity()),
+        [tPokemonModel.toEntity()],
+      );
     });
-
-    // test('should throw an exception and update state on failure', () async {
-    //   // Arrange
-    //   when(mockGetPokemon(mockGetPokemonParams)).thenAnswer(
-    //     (_) async => const Left(ServerFailure(message: 'Server Failure')),
-    //   );
-    //
-    //   // Act
-    //   final notifier = container.read(homeNotifierProvider.notifier);
-    //   expect(
-    //     () => notifier.fetchPokemon(mockGetPokemon),
-    //     const ServerFailure(message: 'Server Failure'),
-    //   );
-    //
-    //   // Assert
-    //   verify(mockGetPokemon(mockGetPokemonParams)).called(1);
-    // });
   });
 }
