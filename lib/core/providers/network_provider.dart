@@ -9,5 +9,5 @@ final internetConnectionCheckerProvider =
 
 // Provider for NetworkInfo
 final networkInfoProvider = Provider<NetworkInfo>((ref) {
-  return NetworkInfoImpl(ref.watch(internetConnectionCheckerProvider));
+  return NetworkInfoImpl(ref.read(internetConnectionCheckerProvider));
 });

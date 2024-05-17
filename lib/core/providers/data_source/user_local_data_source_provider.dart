@@ -4,7 +4,7 @@ import 'package:pokedex/core/providers/storage_provider.dart';
 
 final userLocalDataSourceProvider = Provider<UserLocalDataSource>((ref) {
   return UserLocalDataSourceImpl(
-    sharedPreferences: ref.watch(sharedPreferencesProvider),
-    secureStorage: ref.watch(secureStorageProvider),
+    sharedPreferences: ref.read(sharedPreferencesProvider),
+    secureStorage: ref.read(secureStorageProvider),
   );
 });

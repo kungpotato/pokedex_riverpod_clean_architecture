@@ -8,12 +8,12 @@ import 'package:pokedex/core/providers/network_provider.dart';
 
 final Provider<PokemonRepository> pokemonRepositoryProvider =
     Provider<PokemonRepository>((ref) {
-  final dio = ref.watch(dioProvider);
-  final remoteDataSource = ref.watch(pokemonRemoteDatasourceProvider(dio));
+  final dio = ref.read(dioProvider);
+  final remoteDataSource = ref.read(pokemonRemoteDatasourceProvider(dio));
   final repository = PokemonRepoImp(
     remoteDataSource: remoteDataSource,
-    networkInfo: ref.watch(networkInfoProvider),
-    userLocalDataSource: ref.watch(userLocalDataSourceProvider),
+    networkInfo: ref.read(networkInfoProvider),
+    userLocalDataSource: ref.read(userLocalDataSourceProvider),
   );
 
   return repository;
