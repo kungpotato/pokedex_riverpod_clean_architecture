@@ -9,7 +9,7 @@ import 'package:pokedex/core/error/failures.dart';
 
 import 'get_pokemon_test.mocks.dart';
 
-@GenerateMocks([PokemonRepository, GetPokemonParams, GetPokemon])
+@GenerateMocks([PokemonRepository, GetPokemonParams])
 void main() {
   late PokemonRepository mockPokemonRepository;
   late GetPokemonParams getPokemonParams;

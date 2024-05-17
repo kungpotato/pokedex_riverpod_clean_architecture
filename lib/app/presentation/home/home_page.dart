@@ -27,15 +27,19 @@ class _HomePageState extends ConsumerState<HomePage> {
       appBar: AppBar(
         title: const Text('Pokémon List'),
       ),
-      body: SingleChildScrollView(
-        child: Center(
-          child: Wrap(
-            key: const Key('pokemonList'),
-            children: homeState.pokemonList
-                .map((e) => PokemonItem(name: e.name, url: e.imgUrl))
-                .toList(),
+      body: homeState.when(
+        data: (data) => SingleChildScrollView(
+          child: Center(
+            child: Wrap(
+              key: const Key('pokemonList'),
+              children: data.pokemonList
+                  .map((e) => PokemonItem(name: e.name, url: e.imgUrl))
+                  .toList(),
+            ),
           ),
         ),
+        error: (error, stackTrace) => Text(error.toString()),
+        loading: CircularProgressIndicator.new,
       ),
     );
   }

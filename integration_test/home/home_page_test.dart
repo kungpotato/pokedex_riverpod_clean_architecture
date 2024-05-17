@@ -19,7 +19,7 @@ Future<void> waitForPokemonList(
   Duration timeout = const Duration(seconds: 20),
 }) async {
   final endTime = DateTime.now().add(timeout);
-  while (!await isPokemonListNotEmpty(tester)) {
+  while (!isPokemonListNotEmpty(tester)) {
     if (DateTime.now().isAfter(endTime)) {
       throw Exception('Timeout waiting');
     }
@@ -27,12 +27,12 @@ Future<void> waitForPokemonList(
   }
 }
 
-Future<bool> isPokemonListNotEmpty(
+bool isPokemonListNotEmpty(
   WidgetTester tester,
-) async {
+) {
   final ref = tester.element<ConsumerStatefulElement>(find.byType(HomePage));
   final homeState = ref.watch(homeNotifierProvider);
-  return homeState.pokemonList.isNotEmpty;
+  return homeState.value?.pokemonList.isNotEmpty ?? false;
 }
 
 void main() async {
@@ -70,7 +70,7 @@ void main() async {
     final ref = tester.element(find.byType(HomePage)) as WidgetRef;
     final homeState = ref.watch(homeNotifierProvider);
 
-    expect(homeState.pokemonList, isNotEmpty);
+    expect(homeState.value?.pokemonList, isNotEmpty);
     await tester.pump(const Duration(seconds: 1));
     await tester.pumpAndSettle(const Duration(seconds: 5));
   });
