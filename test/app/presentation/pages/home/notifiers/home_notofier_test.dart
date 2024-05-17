@@ -30,9 +30,9 @@ void main() {
   const tPokemon =
       Pokemon(name: 'Pikachu', url: 'https://pokeapi.co/api/v2/ability/7/');
 
-  test('initial state should be HomeState.initial()', () {
+  test('initial state should be AsyncLoading', () {
     final notifier = container.read(homeNotifierProvider.notifier);
-    expect(notifier.state, const AsyncData(HomeState.initial()));
+    expect(notifier.state, isA<AsyncLoading<HomeState>>());
   });
 
   group('fetchPokemon', () {
@@ -45,11 +45,11 @@ void main() {
 
       // Act
       final notifier = container.read(homeNotifierProvider.notifier);
-      await notifier.fetchPokemon(getPokemon);
+      final res = await notifier.fetchPokemon(getPokemon);
 
       // Assert
       expect(
-        notifier.state.value?.pokemonList.map((e) => e.toEntity()).toList(),
+        res.pokemonList.map((e) => e.toEntity()).toList(),
         [tPokemon],
       );
     });
