@@ -19,13 +19,12 @@ class HomeNotifier extends _$HomeNotifier {
     state = const AsyncData(HomeState());
     state = const AsyncLoading<HomeState>();
     final getPokemon = GetPokemon(ref.read(pokemonRepositoryProvider));
-    await Future.delayed(const Duration(seconds: 3));
     return fetchPokemon(getPokemon);
   }
 
   Future<HomeState> fetchPokemon(GetPokemon getPokemon) async {
     final response = await getPokemon(const GetPokemonParams(limit: 100));
-    // await Future.delayed(const Duration(seconds: 3));
+    await Future.delayed(const Duration(seconds: 3));
     return updateStateFromResponse(response);
   }
 
