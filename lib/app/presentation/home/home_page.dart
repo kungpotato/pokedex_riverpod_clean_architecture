@@ -39,7 +39,9 @@ class _HomePageState extends ConsumerState<HomePage> {
           ),
         ),
         error: (error, stackTrace) => Text(error.toString()),
-        loading: CircularProgressIndicator.new,
+        loading: () => const Center(
+          child: CircularProgressIndicator(),
+        ),
       ),
     );
   }
