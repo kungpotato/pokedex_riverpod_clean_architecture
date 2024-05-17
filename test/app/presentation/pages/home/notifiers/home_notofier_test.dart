@@ -3,7 +3,6 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/annotations.dart';
 import 'package:mockito/mockito.dart';
-import 'package:pokedex/app/data/models/pokemon/pokemon_model.dart';
 import 'package:pokedex/app/domain/entities/pokemon/pokemon.dart';
 import 'package:pokedex/app/domain/repositories/pokemon_repository.dart';
 import 'package:pokedex/app/domain/use_cases/get_pokemon.dart';
@@ -30,7 +29,6 @@ void main() {
 
   const tPokemon =
       Pokemon(name: 'Pikachu', url: 'https://pokeapi.co/api/v2/ability/7/');
-  final tPokemonModel = PokemonModel.fromEntity(tPokemon);
 
   test('initial state should be HomeState.initial()', () {
     final notifier = container.read(homeNotifierProvider.notifier);
@@ -51,8 +49,8 @@ void main() {
 
       // Assert
       expect(
-        notifier.state.value?.pokemonList.map((e) => e.toEntity()),
-        [tPokemonModel.toEntity()],
+        notifier.state.value?.pokemonList.map((e) => e.toEntity()).toList(),
+        [tPokemon],
       );
     });
   });
