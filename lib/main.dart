@@ -24,13 +24,15 @@ void main() async {
             .overrideWithValue(internetConnectionChecker),
         secureStorageProvider.overrideWithValue(flutterSecureStorage),
       ],
-      child: const MyApp(),
+      child: const MyApp(home: HomePage()),
     ),
   );
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+  const MyApp({required this.home, super.key});
+
+  final Widget home;
 
   @override
   Widget build(BuildContext context) {
@@ -40,7 +42,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: const HomePage(),
+      home: home,
     );
   }
 }
