@@ -1,0 +1,30 @@
+name: core_providers
+description: "A new Flutter package project."
+version: 0.0.1
+
+publish_to: 'none'
+
+environment:
+  sdk: '>=3.3.4 <4.0.0'
+  flutter: ">=1.17.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  flutter_riverpod: ^2.5.1
+  dio: ^5.4.3+1
+  internet_connection_checker: ^1.0.0+1
+  flutter_secure_storage: ^9.1.1
+  shared_preferences: ^2.2.3
+  mockito: ^5.4.4
+  riverpod: ^2.5.1
+  hooks_riverpod: ^2.5.1
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^3.0.0
+  melos: ^6.0.0
+  build_runner: ^2.4.9
+
+flutter:
