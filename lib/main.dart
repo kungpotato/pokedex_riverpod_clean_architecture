@@ -1,10 +1,9 @@
+import 'package:core_providers/core_providers.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
+import 'package:home/home.dart';
 import 'package:internet_connection_checker/internet_connection_checker.dart';
-import 'package:pokedex/app/presentation/home/home_page.dart';
-import 'package:pokedex/core/providers/network_provider.dart';
-import 'package:pokedex/core/providers/storage_provider.dart';
 import 'package:pokedex/observers.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
