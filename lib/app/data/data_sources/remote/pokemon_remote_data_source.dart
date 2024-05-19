@@ -24,7 +24,7 @@ class PokemonRemoteDataSourceImpl extends PokemonRemoteDataSource {
     try {
       final response = await _client
           .get(APIEnPoint.getPokemon, queryParameters: {'limit': 20});
-      final data = response.data['results'] as List<Map<String, dynamic>>;
+      final data = response.data['results'] as List<dynamic>;
       return data.toPokemonModelList();
     } on DioException catch (e) {
       throw Exception('Failed to load Pokemon: ${e.message}');

@@ -1,9 +1,10 @@
 import 'package:pokedex/app/data/models/pokemon/pokemon_model.dart';
 import 'package:pokedex/app/domain/entities/pokemon/pokemon.dart';
 
-extension PokemonModelMapper on List<Map<String, dynamic>> {
+extension PokemonModelMapper on List<dynamic> {
   List<PokemonModel> toPokemonModelList() {
-    return map(PokemonModel.fromJson).toList();
+    return map((e) => PokemonModel.fromJson(e as Map<String, dynamic>))
+        .toList();
   }
 }
 
