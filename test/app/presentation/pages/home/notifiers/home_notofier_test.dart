@@ -3,6 +3,7 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:pokedex/app/data/models/pokemon/pokemon_model.dart';
 import 'package:pokedex/app/presentation/home/notifiers/home_notifier.dart';
 import 'package:pokedex/app/presentation/home/notifiers/state/home_state.dart';
+import 'package:pokedex/core/utils/mapper.dart';
 
 void main() {
   late ProviderContainer container;
@@ -48,7 +49,7 @@ void main() {
       // Assert
       expect(state.value?.pokemonList, isNotEmpty);
       expect(
-        state.value?.pokemonList.map((e) => e.toEntity()).toList(),
+        state.value?.pokemonList.toPokemonEntity(),
         tPokemonList.map((e) => e.toEntity()),
       );
     });
