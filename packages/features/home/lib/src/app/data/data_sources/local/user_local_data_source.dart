@@ -1,5 +1,5 @@
+import 'package:core_providers/core_providers.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
-import 'package:home/src/app/data/models/user/user_model.dart';
 import 'package:home/src/core/error/exceptions.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 

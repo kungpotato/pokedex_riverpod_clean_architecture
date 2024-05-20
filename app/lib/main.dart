@@ -29,20 +29,25 @@ void main() async {
   );
 }
 
-class MyApp extends StatelessWidget {
+class MyApp extends ConsumerWidget {
   const MyApp({required this.home, super.key});
 
   final Widget home;
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
+    final authState = ref.watch(authNotifierProvider);
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: home,
+      home: authState.when(
+        data: (data) => data.user != null ? home : const LoginPage(),
+        error: (error, stackTrace) => const Text('error'),
+        loading: CircularProgressIndicator.new,
+      ),
     );
   }
 }
