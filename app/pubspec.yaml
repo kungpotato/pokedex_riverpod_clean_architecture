@@ -17,10 +17,12 @@ dependencies:
   shared_preferences: ^2.2.3
   flutter_riverpod: ^2.5.1
   mockito: ^5.4.4
-  home:
-    path: '../packages/features/home'
   core_providers:
     path: '../packages/core/core_providers'
+  home:
+    path: '../packages/features/home'
+  auth:
+    path: '../packages/features/auth'
 
 
 dev_dependencies:
