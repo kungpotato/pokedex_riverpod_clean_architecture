@@ -293,7 +293,7 @@ packages:
     source: hosted
     version: "2.5.1"
   flutter_secure_storage:
-    dependency: transitive
+    dependency: "direct main"
     description:
       name: flutter_secure_storage
       sha256: "8496a89eea74e23f92581885f876455d9d460e71201405dffe5f55dfe1155864"
@@ -406,7 +406,7 @@ packages:
     source: hosted
     version: "4.0.2"
   internet_connection_checker:
-    dependency: transitive
+    dependency: "direct main"
     description:
       name: internet_connection_checker
       sha256: "1c683e63e89c9ac66a40748b1b20889fd9804980da732bf2b58d6d5456c8e876"
@@ -686,7 +686,7 @@ packages:
     source: hosted
     version: "0.27.7"
   shared_preferences:
-    dependency: transitive
+    dependency: "direct main"
     description:
       name: shared_preferences
       sha256: d3bbe5553a986e83980916ded2f0b435ef2e1893dfaa29d5a7a790d0eca12180
