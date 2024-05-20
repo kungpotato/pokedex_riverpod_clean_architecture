@@ -26,12 +26,22 @@ install it from [Flutter's official site](https://docs.flutter.dev/get-started/i
    melos bootstrap
    ```
     ```bash
-   melos bootstrap
+   melos generate:flutter
+   ```
+   ```bash
+   dart pub global activate mason_cli
    ```
 
-3. **Install Dependency**
+3. **Create folder structure**
+
+   To create a folder structure using Mason and ensure that all directories are created (even if
+   they are empty), follow these steps:
+
    ```bash
-   melos generate:flutter
+   mason get
+   ```
+   ```bash
+   mason make folder_structure
    ```
 
 ### Folder Structure
