@@ -44,6 +44,12 @@ install it from [Flutter's official site](https://docs.flutter.dev/get-started/i
    mason make folder_structure
    ```
 
+   To create standalone app
+
+   ```bash
+   flutter create [app_name] --platform=ios,android --org [app_id]
+   ```
+
 ### Folder Structure
 
    ```bash
