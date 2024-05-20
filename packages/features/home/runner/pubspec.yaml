@@ -19,11 +19,11 @@ dependencies:
   flutter_riverpod: ^2.5.1
   mockito: ^5.4.4
   core_providers:
-    path: '../packages/core/core_providers'
+    path: '../../../core/core_providers'
   auth:
-    path: '../packages/features/auth'
+    path: '../../../features/auth'
   home:
-    path: '../packages/features/home'
+    path: '../../..//features/home'
 
 
 dev_dependencies:
