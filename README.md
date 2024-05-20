@@ -39,74 +39,38 @@ install it from [Flutter's official site](https://docs.flutter.dev/get-started/i
    ```bash
 lib
 ├── app
-│   ├── data
-│   │   ├── data_sources
-│   │   │   ├── local
-│   │   │   │   └── user_local_data_source.dart
-│   │   │   ├── remote
-│   │   │   │   └── pokemon_remote_data_source.dart
-│   │   │   └── rtf
-│   │   │       └── pokemon_data_source
-│   │   │           ├── pokemon_rtf_data_source.dart
-│   │   │           └── pokemon_rtf_data_source.g.dart
-│   │   ├── imp_repositories
-│   │   │   └── pokemon_repo_imp.dart
-│   │   └── models
-│   │       ├── another
-│   │       │   └── another_model.dart
-│   │       ├── pokemon
-│   │       │   ├── pokemon_model.dart
-│   │       │   └── pokemon_model.g.dart
-│   │       └── user
-│   │           └── user_model.dart
-│   ├── domain
-│   │   ├── entities
-│   │   │   └── pokemon
-│   │   │       └── pokemon.dart
-│   │   ├── repositories
-│   │   │   └── pokemon_repository.dart
-│   │   └── use_cases
-│   │       └── get_pokemon.dart
-│   └── presentation
-│       ├── common
-│       │   ├── utils
-│       │   │   └── mappers.dart
-│       │   └── widgets
-│       │       └── component.dart
-│       └── home
-│           ├── home_page.dart
-│           ├── notifiers
-│           │   ├── home_notifier.dart
-│           │   ├── home_notifier.g.dart
-│           │   └── state
-│           │       └── home_state.dart
-│           └── widgets
-│               └── pokemon_item.dart
+│   ├── data
+│   │   ├── data_sources
+│   │   │   ├── local
+│   │   │   ├── remote
+│   │   │   └── rtf
+│   │   ├── imp_repositories
+│   │   └── models
+│   │       ├── another
+│   │       ├── pokemon
+│   │       └── user
+│   ├── domain
+│   │   ├── entities
+│   │   │   └── pokemon
+│   │   ├── repositories
+│   │   └── use_cases
+│   └── presentation
+│       ├── common
+│       │   ├── utils
+│       │   └── widgets
+│       └── home
+│           ├── notifiers
+│           │   └── state
+│           └── widgets
 ├── core
-│   ├── api
-│   │   └── api_end_point.dart
-│   ├── error
-│   │   ├── exceptions.dart
-│   │   └── failures.dart
-│   ├── network
-│   │   └── network_info.dart
-│   ├── providers
-│   │   ├── data_source
-│   │   │   ├── pokemon_remote_data_source_provider.dart
-│   │   │   └── user_local_data_source_provider.dart
-│   │   ├── dio_provider.dart
-│   │   ├── network_provider.dart
-│   │   ├── repository
-│   │   │   └── pokemon_repository_provider.dart
-│   │   └── storage_provider.dart
-│   ├── routes
-│   │   └── routes.dart
-│   ├── themes
-│   │   └── light_theme.dart
-│   ├── use_cases
-│   │   └── use_case.dart
-│   └── utils
-│       └── extensions.dart
-├── main.dart
-└── observers.dart
+│   ├── api
+│   ├── error
+│   ├── network
+│   ├── providers
+│   │   ├── data_source
+│   │   ├── repository
+│   ├── routes
+│   ├── themes
+│   ├── use_cases
+│   └── utils
    ```
