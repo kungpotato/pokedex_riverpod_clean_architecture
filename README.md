@@ -2,6 +2,8 @@
 
 This is a simple project for using Riverpod with clean architecture.
 
+![alt text](https://raw.githubusercontent.com/kungpotato/pokedex_riverpod_clean_architecture/micro-kernel/docs/Screenshot%202567-05-21%20at%2011.09.05.png)
+
 ## Installation
 
 Follow these steps to set up the project locally. This guide assumes that you have already installed
