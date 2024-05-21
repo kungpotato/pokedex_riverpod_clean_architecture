@@ -1,0 +1,51 @@
+name: home
+description: "A new Flutter package project."
+version: 0.0.1
+
+publish_to: 'none'
+
+environment:
+  sdk: '>=3.3.4 <4.0.0'
+  flutter: ">=1.17.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  flutter_riverpod: ^2.5.1
+  riverpod: ^2.5.1
+  hooks_riverpod: ^2.5.1
+  riverpod_generator: ^2.4.0
+  riverpod_annotation: ^2.3.5
+  riverpod_lint: ^2.3.10
+  very_good_analysis: ^5.1.0
+  custom_lint: ^0.6.4
+  equatable: ^2.0.5
+  dartz: ^0.10.1
+  retrofit: ^4.1.0
+  retrofit_generator: ^8.1.0
+  dio: ^5.4.3+1
+  json_annotation: ^4.9.0
+  internet_connection_checker: ^1.0.0+1
+  flutter_secure_storage: ^9.1.1
+  shared_preferences: ^2.2.3
+  mockito: ^5.4.4
+  mocktail_image_network: ^1.1.0
+  get_it: ^7.7.0
+  core_providers:
+    path: '../../core/core_providers'
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  integration_test:
+    sdk: flutter
+  flutter_lints: ^3.0.0
+  build_runner: ^2.4.9
+  json_serializable: ^6.8.0
+  melos: ^6.0.0
+
+
+flutter:
+  uses-material-design: true
+  assets:
+    - assets/pngegg.png

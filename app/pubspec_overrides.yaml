@@ -1,0 +1,8 @@
+# melos_managed_dependency_overrides: core_providers,home
+dependency_overrides:
+  core_providers:
+    path: ../packages/core/core_providers
+  auth:
+    path: ../packages/features/auth
+  home:
+    path: ../packages/features/home
