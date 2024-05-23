@@ -7,7 +7,6 @@ import 'package:home/src/app/domain/use_cases/get_pokemon.dart';
 import 'package:home/src/app/presentation/home/notifiers/state/home_state.dart';
 import 'package:home/src/core/error/failures.dart';
 import 'package:home/src/core/providers/repository/pokemon_repository_provider.dart';
-import 'package:home/src/core/utils/mapper.dart';
 import 'package:mockito/mockito.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
@@ -37,7 +36,7 @@ class HomeNotifier extends _$HomeNotifier {
       throw Exception(failure);
     }, (data) {
       final newState = state.value?.copyWith(
-        pokemonList: data.fromPokemonEntity(),
+        pokemonList: data,
       );
       return Future.value(newState ?? const HomeState.initial());
     });

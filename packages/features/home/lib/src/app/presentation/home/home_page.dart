@@ -33,7 +33,7 @@ class _HomePageState extends ConsumerState<HomePage> {
             child: Wrap(
               key: const Key('pokemonList'),
               children: data.pokemonList
-                  .map((e) => PokemonItem(name: e.name, url: e.imgUrl))
+                  .map((e) => PokemonItem(name: e.name, url: e.url))
                   .toList(),
             ),
           ),
