@@ -23,7 +23,7 @@ class PokemonModel {
 
   Map<String, dynamic> toJson() => _$PokemonModelToJson(this);
 
-  Pokemon toEntity() => Pokemon(name: name, url: url);
+  Pokemon toEntity() => Pokemon(name: name, url: imgUrl);
 
   String get imgUrl {
     final segments = url.split('/');

@@ -1,5 +1,5 @@
 import 'package:equatable/equatable.dart';
-import 'package:home/src/app/data/models/pokemon/pokemon_model.dart';
+import 'package:home/src/app/domain/entities/pokemon/pokemon.dart';
 
 class HomeState extends Equatable {
   const HomeState({
@@ -8,10 +8,10 @@ class HomeState extends Equatable {
 
   const HomeState.initial({this.pokemonList = const []});
 
-  final List<PokemonModel> pokemonList;
+  final List<Pokemon> pokemonList;
 
   HomeState copyWith({
-    List<PokemonModel>? pokemonList,
+    List<Pokemon>? pokemonList,
   }) {
     return HomeState(
       pokemonList: pokemonList ?? this.pokemonList,

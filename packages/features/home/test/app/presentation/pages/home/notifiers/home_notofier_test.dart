@@ -1,9 +1,8 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:home/src/app/data/models/pokemon/pokemon_model.dart';
+import 'package:home/src/app/domain/entities/pokemon/pokemon.dart';
 import 'package:home/src/app/presentation/home/notifiers/home_notifier.dart';
 import 'package:home/src/app/presentation/home/notifiers/state/home_state.dart';
-import 'package:home/src/core/utils/mapper.dart';
 
 void main() {
   late ProviderContainer container;
@@ -17,9 +16,9 @@ void main() {
   });
 
   const tLimit = 2;
-  final tPokemonList = List<PokemonModel>.generate(
+  final tPokemonList = List<Pokemon>.generate(
     tLimit,
-    (index) => PokemonModel(
+    (index) => Pokemon(
       name: 'Pokemon $index',
       url: 'https://pokeapi.co/api/v2/ability/7/',
     ),
@@ -49,8 +48,8 @@ void main() {
       // Assert
       expect(state.value?.pokemonList, isNotEmpty);
       expect(
-        state.value?.pokemonList.toPokemonEntity(),
-        tPokemonList.map((e) => e.toEntity()),
+        state.value?.pokemonList,
+        tPokemonList,
       );
     });
   });

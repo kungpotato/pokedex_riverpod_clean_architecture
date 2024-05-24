@@ -1,5 +1,6 @@
 import 'package:flutter_test/flutter_test.dart';
 import 'package:home/src/app/data/models/pokemon/pokemon_model.dart';
+import 'package:home/src/app/domain/entities/pokemon/pokemon.dart';
 import 'package:home/src/app/presentation/home/notifiers/state/home_state.dart';
 
 void main() {
@@ -15,15 +16,15 @@ void main() {
     });
 
     test('copyWith returns a new instance with updated values', () {
-      const initialList = [
-        PokemonModel(name: 'Pikachu', url: 'www.google.com'),
-        PokemonModel(name: 'Bulbasaur', url: 'www.google.com'),
+      final initialList = [
+        const Pokemon(name: 'Pikachu', url: 'www.google.com'),
+        const Pokemon(name: 'Baseurl', url: 'www.google.com'),
       ];
       const updatedList = [
-        PokemonModel(name: 'Charmander', url: 'www.google.com'),
+        Pokemon(name: 'Charmander', url: 'www.google.com'),
       ];
 
-      const state = HomeState(pokemonList: initialList);
+      final state = HomeState(pokemonList: initialList);
 
       final updatedState = state.copyWith(pokemonList: updatedList);
 
@@ -33,7 +34,7 @@ void main() {
 
     test('copyWith returns the same instance if no changes are made', () {
       const initialList = [
-        PokemonModel(name: 'Pikachu', url: 'www.google.com'),
+        Pokemon(name: 'Pikachu', url: 'www.google.com'),
       ];
 
       const state = HomeState(pokemonList: initialList);
