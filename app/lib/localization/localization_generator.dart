@@ -13,9 +13,11 @@ class LocalizationGenerator extends GeneratorForAnnotation<Localize> {
     ConstantReader annotation,
     BuildStep buildStep,
   ) async {
-    const jsonFilePath = 'lib/localization/localization_config.json';
+    final name = annotation.read('name').literalValue! as String;
+    final path = annotation.read('path').literalValue! as String;
+
     final jsonContent = await buildStep.readAsString(
-      AssetId(buildStep.inputId.package, jsonFilePath),
+      AssetId(buildStep.inputId.package, path),
     );
 
     final localizationMap = jsonDecode(jsonContent) as Map<String, dynamic>;
@@ -31,21 +33,21 @@ class LocalizationGenerator extends GeneratorForAnnotation<Localize> {
       '// **************************************************************************',
     );
     buffer.writeln();
-    buffer.writeln('class Localization {');
+    buffer.writeln('class ${name}Localization {');
     localizationMap.forEach((key, value) {
       buffer.writeln('  final String $key;');
     });
     buffer.writeln();
-    buffer.writeln('  Localization({');
+    buffer.writeln('  ${name}Localization({');
     localizationMap.forEach((key, value) {
       buffer.writeln('    required this.$key,');
     });
     buffer.writeln('  });');
     buffer.writeln();
     buffer.writeln(
-      '  factory Localization.fromRemoteConfig(Map<String, dynamic> remoteConfig) {',
+      '  factory ${name}Localization.fromRemoteConfig(Map<String, dynamic> remoteConfig) {',
     );
-    buffer.writeln('    return Localization(');
+    buffer.writeln('    return ${name}Localization(');
     localizationMap.forEach((key, value) {
       buffer.writeln('      $key: remoteConfig["$key"] ?? "$value",');
     });
