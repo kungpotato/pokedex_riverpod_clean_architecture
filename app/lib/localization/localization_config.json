@@ -1,0 +1,15 @@
+{
+  "title": "Welcome",
+  "subtitle": "Your Flutter app is ready",
+  "greeting": "Hello, {name}!",
+  "button_text": "Click me",
+  "error_message": "Something went wrong",
+  "success_message": "Operation was successful",
+  "logout": "Logout",
+  "login": "Login",
+  "settings": "Settings",
+  "profile": "Profile",
+  "language": "Language",
+  "dark_mode": "Dark Mode",
+  "light_mode": "Light Mode"
+}

@@ -25,6 +25,9 @@ dependencies:
     path: '../packages/features/home'
   firebase_remote_config: ^4.4.7
   firebase_core: ^2.32.0
+  source_gen: ^1.5.0
+  build: ^2.4.1
+  analyzer: ^6.4.1
 
 
 dev_dependencies:
