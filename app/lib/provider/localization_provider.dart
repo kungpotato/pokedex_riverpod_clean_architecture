@@ -4,6 +4,12 @@ import 'package:firebase_remote_config/firebase_remote_config.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:pokedex/gen_locale/app_home.dart';
 
+class BkLocale {
+  BkLocale({required this.home});
+
+  final HomeLocalization home;
+}
+
 final localizationProvider = Provider((ref) {
   final remoteConfig = FirebaseRemoteConfig.instance;
   final all = remoteConfig.getAll();
@@ -12,5 +18,5 @@ final localizationProvider = Provider((ref) {
 
   final localization = HomeLocalization.fromRemoteConfig(json);
 
-  return localization;
+  return BkLocale(home: localization);
 });

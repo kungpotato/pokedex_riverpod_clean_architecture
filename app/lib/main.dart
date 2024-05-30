@@ -82,7 +82,7 @@ class _MyAppState extends ConsumerState<MyApp> {
     final text = ref.read(localizationProvider);
     print(text);
     return MaterialApp(
-      title: text.button_text,
+      title: text.home.button_text,
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
