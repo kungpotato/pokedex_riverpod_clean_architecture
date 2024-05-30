@@ -23,6 +23,8 @@ dependencies:
     path: '../packages/features/auth'
   home:
     path: '../packages/features/home'
+  firebase_remote_config: ^4.4.7
+  firebase_core: ^2.32.0
 
 
 dev_dependencies:
