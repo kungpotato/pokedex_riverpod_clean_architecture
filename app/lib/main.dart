@@ -11,6 +11,7 @@ import 'package:home/home.dart';
 import 'package:internet_connection_checker/internet_connection_checker.dart';
 import 'package:pokedex/firebase_options.dart';
 import 'package:pokedex/observers.dart';
+import 'package:pokedex/provider/localization_provider.dart';
 import 'package:pokedex/service/rmc_service.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -78,9 +79,10 @@ class _MyAppState extends ConsumerState<MyApp> {
   @override
   Widget build(BuildContext context) {
     final authState = ref.watch(authNotifierProvider);
-
+    final text = ref.read(localizationProvider);
+    print(text);
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: text.button_text,
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,

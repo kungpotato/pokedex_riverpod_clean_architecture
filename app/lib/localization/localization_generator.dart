@@ -43,7 +43,7 @@ class LocalizationGenerator extends GeneratorForAnnotation<Localize> {
     buffer.writeln('  });');
     buffer.writeln();
     buffer.writeln(
-      '  factory Localization.fromRemoteConfig(Map<String, String> remoteConfig) {',
+      '  factory Localization.fromRemoteConfig(Map<String, dynamic> remoteConfig) {',
     );
     buffer.writeln('    return Localization(');
     localizationMap.forEach((key, value) {
