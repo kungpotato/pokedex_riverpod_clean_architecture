@@ -9,7 +9,7 @@ builders:
   gen_localization:
     import: "package:pokedex/builders.dart"
     builder_factories: [ "localizationBuilder" ]
-    build_extensions: { ".dart": [ ".g.part" ] }
+    build_extensions: { ".dart": [ ".localization.g.part" ] }
     auto_apply: dependents
-    build_to: source
+    build_to: cache
     applies_builders: [ "source_gen|combining_builder" ]
